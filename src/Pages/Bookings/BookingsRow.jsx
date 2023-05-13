@@ -1,4 +1,4 @@
-const BookingsRow = ({ booking, deleteHandler }) => {
+const BookingsRow = ({ booking, deleteHandler, confirmHandler }) => {
   console.log(booking);
 
  
@@ -42,7 +42,9 @@ const BookingsRow = ({ booking, deleteHandler }) => {
       <td>{booking.price}</td>
       <td>{booking.date}</td>
       <th>
-        <button className="btn btn-ghost btn-xs">details</button>
+        {
+             <button onClick={() => confirmHandler(booking._id)} className="btn btn-ghost btn-xs">Please Confirm</button>
+        }
       </th>
     </tr>
   );

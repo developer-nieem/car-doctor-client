@@ -88,7 +88,7 @@ const Checkout = () => {
               </div>
             </div>
             <div className="form-control mt-6">
-              <button className="btn btn-primary">Login</button>
+              <button className="btn btn-primary">Booking</button>
             </div>
           </form>
         </div>
