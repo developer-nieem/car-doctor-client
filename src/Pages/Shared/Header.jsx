@@ -1,6 +1,19 @@
 import { Link } from "react-router-dom";
 import logo from '../../assets/logo.svg'
+import { useContext } from "react";
+import { AuthContext } from "../../provider/AuthProvider";
 const Header = () => {
+    const {user, logout} = useContext(AuthContext);
+
+    const logoutHandler = () =>{
+        logout()
+        .then(() => {})
+        .catch(error => {
+          console.log(error.message);
+        })
+          
+    }
+      
   const menu = (
     <>
       <li>
@@ -9,9 +22,14 @@ const Header = () => {
          <Link>Services</Link> 
          <Link>Blog</Link> 
          <Link>Contacts</Link> 
+        
       </li>
+      {
+        user ? <li> <Link to='/bookings'>My Bookings</Link> <button onClick={logoutHandler}>Log Out</button> </li> : <li> <Link to='/login'>Login</Link></li>
+      }
     </>
   );
+
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">
